@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Shuhana ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Poppins',sans-serif;min-height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:#fff;overflow:hidden;}
+.page{display:none;flex-direction:column;align-items:center;justify-content:flex-start;width:100%;height:100vh;text-align:center;padding:20px;position:relative;}
+.active{display:flex;}
+#floating-hearts div,#confetti div{position:absolute;user-select:none;}
+#floating-hearts div{font-size:24px;animation:float linear infinite;}
+@keyframes float{0%{transform:translateY(100vh) rotate(0deg);}100%{transform:translateY(-100vh) rotate(360deg);}}
+#password-card{background:rgba(255,255,255,0.08);border-radius:26px;padding:40px 30px;max-width:520px;width:90%;box-shadow:0 30px 80px rgba(0,0,0,.4);text-align:center;margin-top:20vh;}
+h1{margin:0;font-weight:600;letter-spacing:1px;}
+.sub{margin-top:10px;font-size:14px;color:#ddd;}
+.btn{margin-top:20px;padding:12px 30px;border:none;border-radius:30px;background:linear-gradient(135deg,#ff5f9e,#ff9a9e);color:#000;font-weight:600;cursor:pointer;}
+#flirty-page,#flirty-letter,#letter{background:#ff9ab3;border-radius:20px;padding:25px;max-width:520px;width:90%;margin-top:50px;text-align:left;font-size:16px;line-height:1.6;position:relative;z-index:2;}
+.countdown-columns{display:flex;justify-content:center;gap:15px;margin-top:20px;}
+.countdown-columns div{background:rgba(255,255,255,0.1);padding:15px 20px;border-radius:15px;}
+.countdown-columns div span{display:block;font-size:22px;font-weight:600;}
+.countdown-columns div label{display:block;font-size:12px;color:#ffd6e8;margin-top:5px;}
+#click-heart{font-size:60px;cursor:pointer;margin-top:30px;animation:heartbeat 1.2s infinite;}
+@keyframes heartbeat{0%,100%{transform:scale(1);}25%,75%{transform:scale(1.2);}50%{transform:scale(1.4);}}
+#question-box{margin-top:30px;}
+.option-btn{padding:10px 25px;margin:10px;border-radius:25px;border:none;background:linear-gradient(135deg,#ff5f9e,#ff6fa3);color:#000;font-weight:600;cursor:pointer;}
+.heart-particle{position:absolute;font-size:20px;color:#ff5f9e;animation:rise 5s forwards;}
+@keyframes rise{0%{transform:translateY(0) rotate(0deg);opacity:1;}100%{transform:translateY(-100vh) rotate(720deg);opacity:0;}}
+#thanks-msg{font-size:24px;margin-top:30px;color:#fff;line-height:1.6;}
+#confetti div{width:6px;height:6px;border-radius:50%;background:linear-gradient(45deg,#ff5f9e,#ff9a9e);animation:confettiFall linear forwards;}
+@keyframes confettiFall{0%{transform:translateY(0px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(360deg);opacity:0;}}
+</style>
+</head>
+<body>
+
+<!-- Page 1: Password + floating hearts -->
+<div id="page1" class="page active">
+  <div id="floating-hearts"></div>
+  <div id="password-card">
+    <h1>Enter the password</h1>
+    <div class="sub">Only for Shuhana ✨</div>
+    <button class="btn" onclick="checkPass()">Unlock</button>
+  </div>
+</div>
+
+<!-- Page 2: Flirty mini page -->
+<div id="page2" class="page">
+  <div id="flirty-page">
+    Hey Shuhana! Just wanted to tell you that your smile is totally contagious 😄. Every time you laugh, it makes everything around brighter! Life would be so boring without your little quirks, your laugh, and your amazing energy. I feel lucky just thinking about the way you make even small moments so fun. Next, I have something even more special for you…
+  </div>
+  <button class="btn" onclick="nextToFlirtyLetter()">Next</button>
+  <div id="confetti"></div>
+</div>
+
+<!-- Page 3: Full 120-word Flirty Letter -->
+<div id="page3" class="page">
+  <div id="flirty-letter">
+    Shuhana, you have this magical way of making every moment sweeter. I love the way your eyes sparkle when you talk about things you enjoy, and your laughter — oh, it stays in my mind all day! You make even the simplest moments feel extraordinary. I admire how confident and playful you are, and honestly, I find myself smiling just thinking about you. You’re unforgettable in every possible way, and being around you feels like sunshine on a cloudy day. I hope this little note makes you smile as much as you make me smile every single day. 💖
+  </div>
+  <button class="btn" onclick="nextToLetter()">Next</button>
+  <div id="confetti"></div>
+</div>
+
+<!-- Page 4: Birthday Letter + Countdown + Click Heart -->
+<div id="page4" class="page">
+  <div id="letter">
+    Happy Birthday Shuhana! 🎂✨ I hope your day is filled with endless laughter, sweet moments, and all the love your heart can hold. You deserve the most magical birthday ever, with surprises that make you smile from ear to ear. 💖🥳
+  </div>
+  <div class="countdown-columns">
+    <div><span id="days">0</span><label>Days</label></div>
+    <div><span id="hours">0</span><label>Hours</label></div>
+    <div><span id="minutes">0</span><label>Minutes</label></div>
+    <div><span id="seconds">0</span><label>Seconds</label></div>
+  </div>
+  <div id="click-heart">❤️ Click Me</div>
+  <div id="question-box"></div>
+  <div id="confetti"></div>
+</div>
+
+<!-- Page 5: Thank You -->
+<div id="page5" class="page">
+  <div id="thanks-msg">Hope so you Love It 💖 and I’m waiting for your special day! 🎉</div>
+</div>
+
+<script>
+// Floating hearts in start page
+function createFloatingHeart(){
+  const heart = document.createElement('div');
+  heart.textContent = '❤️';
+  heart.style.left = Math.random()*100+'vw';
+  heart.style.top = Math.random()*100+'vh';
+  heart.style.fontSize = (20+Math.random()*30)+'px';
+  heart.style.animationDuration = (5+Math.random()*5)+'s';
+  document.getElementById('floating-hearts').appendChild(heart);
+  setTimeout(()=>heart.remove(),10000);
+}
+setInterval(createFloatingHeart,300);
+
+// Confetti
+function createConfetti(){
+  const confettiContainer = document.querySelectorAll('#confetti');
+  confettiContainer.forEach(c => {
+    const dot = document.createElement('div');
+    dot.style.left=Math.random()*100+'vw';
+    dot.style.background='hsl('+Math.random()*360+',100%,75%)';
+    dot.style.animationDuration=(3+Math.random()*2)+'s';
+    c.appendChild(dot);
+    setTimeout(()=>dot.remove(),5000);
+  });
+}
+setInterval(createConfetti,200);
+
+// Password
+function checkPass(){
+  const p = prompt('Password');
+  if(p==='shuhana14'){
+    document.getElementById('page1').classList.remove('active');
+    document.getElementById('page2').classList.add('active');
+  } else if(p!==null){alert('Wrong password');}
+}
+
+// Flirty Letter Next
+function nextToFlirtyLetter(){
+  document.getElementById('page2').classList.remove('active');
+  document.getElementById('page3').classList.add('active');
+}
+
+// Birthday Letter Next
+function nextToLetter(){
+  document.getElementById('page3').classList.remove('active');
+  document.getElementById('page4').classList.add('active');
+  startCountdown();
+}
+
+// Countdown
+function startCountdown(){
+  function update(){
+    const now=new Date();
+    let t=new Date(now.getFullYear(),2,14);
+    if(now>t) t=new Date(now.getFullYear()+1,2,14);
+    const d=t-now;
+    document.getElementById('days').textContent=Math.floor(d/86400000);
+    document.getElementById('hours').textContent=Math.floor((d%86400000)/3600000);
+    document.getElementById('minutes').textContent=Math.floor((d%3600000)/60000);
+    document.getElementById('seconds').textContent=Math.floor((d%60000)/1000);
+  }
+  update();
+  setInterval(update,1000);
+}
+
+// Click heart → question
+document.getElementById('click-heart').addEventListener('click',function(){
+  this.style.display='none';
+  const box = document.getElementById('question-box');
+  box.innerHTML = '<h2>Do you hate me?</h2><button class="option-btn" onclick="answerNo()">No</button> <button class="option-btn" onclick="answerYes()">Yes</button>';
+});
+
+// Answer No → hearts fill and drift
+function answerNo(){
+  const box = document.getElementById('question-box');
+  box.innerHTML = '';
+  for(let i=0;i<200;i++){
+    const h = document.createElement('div');
+    h.className='heart-particle';
+    h.textContent='❤️';
+    h.style.left=Math.random()*100+'vw';
+    h.style.top=Math.random()*100+'vh';
+    h.style.fontSize=(15+Math.random()*30)+'px';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),7000);
+  }
+  setTimeout(()=>{document.getElementById('page4').classList.remove('active');document.getElementById('page5').classList.add('active');},3000);
+}
+
+// Answer Yes → alert
+function answerYes(){alert('aww 😄 still love you ❤️');}
+</script>
+</body>
+</html>
